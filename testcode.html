@@ -1,6 +1,39 @@
 <html>
-  <button>test button</button>
-   <div>click</div>
-  <div>click</div>
-  
+	<head>
+		<script src="https://cdn.anychart.com/releases/v8/js/anychart-core.min.js"></script>
+		<script src="https://cdn.anychart.com/releases/v8/js/anychart-cartesian.min.js"></script>
+	</head>
+<body>
+	<div id="container"></div>
+
+	<script>
+
+	anychart.onDocumentLoad(function() {
+
+		//create the data
+	var data = [
+        {x: 'Amazon', y: 120},
+        {x: 'Dzone', y: 60},
+        {x: 'Gizmodo', y: 30},
+        {x: 'StackOverFlow', y: 80},
+        {x: 'CNET', y: 50}
+    ];
+
+    var chart = anychart.bar(); //create a chart
+
+    chart.title('Website Traffic Stats');//create title for the chart
+
+	chart.xAxis().title("Website");//create name for X axis
+
+ 	chart.yAxis().title("Traffic Per Minute"); //create name for Y axis
+
+    var series = chart.bar(data); //create bar series and pass data
+
+    chart.container("container"); //reference the container Id
+
+    chart.draw(); //initiate drawing the bar chart
+
+   });
+	</script>
+</body>
 </html>
